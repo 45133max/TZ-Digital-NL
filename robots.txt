@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.tzdigital.nl/sitemap.xml
+Sitemap: https://tz-digital.nl/sitemap.xml
