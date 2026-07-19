@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TZ Digital | Web Design &amp; Development, Maastricht</title>
+  <meta name="description" content="TZ Digital builds affordable, professional websites, Shopify stores, and smart digital tools like NFC tags, AI agents, and SEO for local Maastricht businesses that want to grow online.">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">TZ Digital</a>
+      <ul class="nav__links">
+        <li><a href="#work" data-i18n="nav.work">Work</a></li>
+        <li><a href="#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="lang-toggle" id="lang-toggle" role="group" aria-label="Language / Taal">
+        <button type="button" class="lang-toggle__btn" data-lang-btn="en">EN</button>
+        <button type="button" class="lang-toggle__btn" data-lang-btn="nl">NL</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero — pinned scroll-rotation -->
+  <div class="hero-pin" id="hero-pin">
+    <section class="hero" id="hero" aria-label="Introduction">
+      <div class="hero__canvas-wrap">
+        <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      </div>
+      <div class="hero__content">
+        <h1 class="hero__headline" id="hero-headline" data-i18n="hero.headline">
+          <span class="word">We</span>
+          <span class="word">build</span>
+          <span class="word">websites</span>
+          <span class="word">that</span>
+          <span class="word">look</span>
+          <span class="word word--accent">like this</span>
+        </h1>
+        <div class="hero__cta" id="hero-cta">
+          <a href="#contact" class="btn btn--accent" data-i18n="hero.cta">Get in touch</a>
+        </div>
+        <p class="hero__trust" id="hero-trust" data-i18n="hero.trust">Trusted by local businesses in Maastricht.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Portfolio — horizontal scroll chapters -->
+  <div class="portfolio-pin" id="portfolio-pin">
+    <section class="portfolio section--light" id="work" aria-label="Our work">
+      <header class="portfolio__header section-header">
+        <p class="eyebrow" data-i18n="work.eyebrow">Our Work</p>
+        <h2 class="section-headline" data-i18n="work.headline">A Few Sites We've Brought to Life</h2>
+      </header>
+
+      <div class="portfolio__track-wrap">
+        <div class="portfolio__track" id="portfolio-track">
+          <div class="portfolio__panel">
+            <div class="portfolio__panel-showcase">
+              <div class="browser-mockup">
+                <div class="browser-mockup__bar">
+                  <span class="browser-mockup__dot"></span>
+                  <span class="browser-mockup__dot"></span>
+                  <span class="browser-mockup__dot"></span>
+                </div>
+                <div class="browser-mockup__content">
+                  <img class="browser-mockup__shot" src="assets/portfolio-roundabout.jpg"
+                       alt="The Roundabout website screenshot" loading="lazy"
+                       onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="browser-mockup__fallback">The Roundabout</div>
+                </div>
+                <div class="browser-mockup__caption">
+                  <p class="browser-mockup__name">The Roundabout</p>
+                  <p class="browser-mockup__desc" data-i18n="work.roundabout.desc">Custom website for The Roundabout, Maastricht</p>
+                  <a href="https://roundabout69.nl/" target="_blank" rel="noopener" class="browser-mockup__visit" data-i18n="work.roundabout.visit">Visit live site ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio__panel">
+            <div class="portfolio__panel-showcase">
+              <div class="browser-mockup">
+                <div class="browser-mockup__bar">
+                  <span class="browser-mockup__dot"></span>
+                  <span class="browser-mockup__dot"></span>
+                  <span class="browser-mockup__dot"></span>
+                </div>
+                <div class="browser-mockup__content">
+                  <img class="browser-mockup__shot" src="assets/portfolio-vriendschap-kapsalon.jpg"
+                       alt="de Vriendschap Kapsalon website screenshot" loading="lazy"
+                       onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="browser-mockup__fallback">de Vriendschap Kapsalon</div>
+                </div>
+                <div class="browser-mockup__caption">
+                  <p class="browser-mockup__name">de Vriendschap Kapsalon</p>
+                  <p class="browser-mockup__desc" data-i18n="work.kapsalon.desc">Kapsalon &amp; barbershop website, Maastricht</p>
+                  <a href="https://kapsalondevriendschap.nl/" target="_blank" rel="noopener" class="browser-mockup__visit" data-i18n="work.kapsalon.visit">Visit live site ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio__panel">
+            <div class="portfolio__panel-showcase">
+              <div class="browser-mockup">
+                <div class="browser-mockup__bar">
+                  <span class="browser-mockup__dot"></span>
+                  <span class="browser-mockup__dot"></span>
+                  <span class="browser-mockup__dot"></span>
+                </div>
+                <div class="browser-mockup__content">
+                  <img class="browser-mockup__shot" src="assets/portfolio-vriendschap-salon.jpg"
+                       alt="de Vriendschap website screenshot" loading="lazy"
+                       onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="browser-mockup__fallback">de Vriendschap</div>
+                </div>
+                <div class="browser-mockup__caption">
+                  <p class="browser-mockup__name">de Vriendschap</p>
+                  <p class="browser-mockup__desc" data-i18n="work.salon.desc">Skin &amp; hair salon website, Maastricht</p>
+                  <a href="https://devriendschapmaastricht.nl/" target="_blank" rel="noopener" class="browser-mockup__visit" data-i18n="work.salon.visit">Visit live site ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio__dots" id="portfolio-dots" aria-hidden="true">
+        <span class="portfolio__dot is-active"></span>
+        <span class="portfolio__dot"></span>
+        <span class="portfolio__dot"></span>
+      </div>
+    </section>
+  </div>
+
+  <!-- Services -->
+  <section class="services section--light" id="services" aria-label="Services">
+    <div class="container">
+      <header class="section-header fade-in-view">
+        <p class="eyebrow" data-i18n="services.eyebrow">What We Do</p>
+        <h2 class="section-headline" data-i18n="services.headline">Everything Your Business Needs Online</h2>
+        <p class="section-support" data-i18n="services.support">From your first website to AI-powered growth, pick what fits and add more any time.</p>
+      </header>
+
+      <div class="services__grid">
+        <article class="service-card fade-in-view">
+          <svg class="service-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <rect x="6" y="8" width="28" height="24" rx="3" stroke="currentColor" stroke-width="2"/>
+            <line x1="6" y1="14" x2="34" y2="14" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <h3 class="service-card__name" data-i18n="services.card1.name">Website Design &amp; Development</h3>
+          <p class="service-card__desc" data-i18n="services.card1.desc">A custom, mobile-friendly website designed and built around your business, not a template.</p>
+        </article>
+
+        <article class="service-card fade-in-view">
+          <svg class="service-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M12 14 L12 10 a8 8 0 0 1 16 0 L28 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <rect x="8" y="14" width="24" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <h3 class="service-card__name" data-i18n="services.card2.name">Shopify &amp; E-Commerce Stores</h3>
+          <p class="service-card__desc" data-i18n="services.card2.desc">A Shopify store built to actually convert visitors into paying customers.</p>
+        </article>
+
+        <article class="service-card fade-in-view">
+          <svg class="service-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M10 12 L10 28 L18 22 L22 32 L26 30 L22 20 L30 20 Z" fill="currentColor"/>
+          </svg>
+          <h3 class="service-card__name" data-i18n="services.card3.name">SEO Optimization</h3>
+          <p class="service-card__desc" data-i18n="services.card3.desc">We get your business found on Google, so customers find you first.</p>
+        </article>
+
+        <article class="service-card fade-in-view">
+          <svg class="service-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <circle cx="14" cy="26" r="2" fill="currentColor"/>
+            <path d="M19 21a7 7 0 0 1 0 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M24 16a14 14 0 0 1 0 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M29 11a21 21 0 0 1 0 30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <h3 class="service-card__name" data-i18n="services.card4.name">NFC Tags</h3>
+          <p class="service-card__desc" data-i18n="services.card4.desc">Tap-to-review tags for your counter, turning happy customers into 5-star reviews.</p>
+        </article>
+
+        <article class="service-card fade-in-view">
+          <svg class="service-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <rect x="14" y="14" width="12" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+            <line x1="20" y1="6" x2="20" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="20" y1="26" x2="20" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="6" y1="20" x2="14" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="26" y1="20" x2="34" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <h3 class="service-card__name" data-i18n="services.card5.name">AI Agents</h3>
+          <p class="service-card__desc" data-i18n="services.card5.desc">A custom AI agent that answers questions and handles bookings for you.</p>
+        </article>
+
+        <article class="service-card fade-in-view">
+          <svg class="service-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M14 12 L8 20 L14 28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M26 12 L32 20 L26 28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="24" y1="10" x2="18" y2="30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <h3 class="service-card__name" data-i18n="services.card6.name">Ongoing Growth &amp; Maintenance</h3>
+          <p class="service-card__desc" data-i18n="services.card6.desc">We keep improving your site and your online presence long after launch.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing section--dark" id="pricing" aria-label="Pricing">
+    <div class="container">
+      <header class="section-header fade-in-view">
+        <p class="eyebrow" data-i18n="pricing.eyebrow">Pricing</p>
+        <h2 class="section-headline" data-i18n="pricing.headline">Simple Pricing, No Surprises</h2>
+        <p class="section-support" data-i18n="pricing.support">Every project is scoped and quoted around what your business actually needs.</p>
+      </header>
+
+      <div class="pricing__grid">
+        <article class="pricing-card fade-in-view">
+          <p class="pricing-card__tier" data-i18n="pricing.tier1.label">Tier 01</p>
+          <h3 class="pricing-card__name" data-i18n="pricing.tier1.name">Website or Shopify Store</h3>
+          <p class="stat-callout pricing-card__price" data-i18n="pricing.tier1.price">Custom</p>
+          <p class="pricing-card__note" data-i18n="pricing.tier1.note">Every website or Shopify store is scoped and quoted individually, so you only pay for what you need.</p>
+          <a href="#contact" class="btn btn--accent" data-i18n="pricing.tier1.cta">Get a quote</a>
+        </article>
+
+        <article class="pricing-card fade-in-view">
+          <p class="pricing-card__tier" data-i18n="pricing.tier2.label">Tier 02</p>
+          <h3 class="pricing-card__name" data-i18n="pricing.tier2.name">Website + SEO</h3>
+          <p class="stat-callout pricing-card__price" data-i18n="pricing.tier2.price">Custom</p>
+          <p class="pricing-card__note" data-i18n="pricing.tier2.note">Website and SEO scoped together and quoted as one project, tailored to your goals.</p>
+          <a href="#contact" class="btn btn--accent" data-i18n="pricing.tier2.cta">Get a quote</a>
+        </article>
+
+        <article class="pricing-card fade-in-view">
+          <p class="pricing-card__tier" data-i18n="pricing.tier3.label">Tier 03</p>
+          <h3 class="pricing-card__name" data-i18n="pricing.tier3.name">NFC Tags &amp; AI Agents</h3>
+          <p class="stat-callout pricing-card__price" data-i18n="pricing.tier3.price">Custom</p>
+          <p class="pricing-card__note" data-i18n="pricing.tier3.note">Every business is different, so you'll get a tailored quote based on what you need.</p>
+          <a href="#contact" class="btn btn--accent" data-i18n="pricing.tier3.cta">Get a quote</a>
+        </article>
+
+        <article class="pricing-card fade-in-view">
+          <p class="pricing-card__tier" data-i18n="pricing.tier4.label">Tier 04</p>
+          <h3 class="pricing-card__name" data-i18n="pricing.tier4.name">Ongoing Growth &amp; Maintenance</h3>
+          <p class="stat-callout pricing-card__price" data-i18n="pricing.tier4.price">Custom</p>
+          <p class="pricing-card__note" data-i18n="pricing.tier4.note">A tailored monthly plan covering Google Business Profile, reviews, Instagram, and more</p>
+          <ul class="service-card__features">
+            <li data-i18n="pricing.tier4.feature1">Google Business Profile management &amp; ranking support</li>
+            <li data-i18n="pricing.tier4.feature2">Instagram support</li>
+            <li data-i18n="pricing.tier4.feature3">Review system setup, plus optional NFC-based review reward tags</li>
+            <li data-i18n="pricing.tier4.feature4">Website and Instagram content sync (extra cost, requires API integration)</li>
+            <li data-i18n="pricing.tier4.feature5">Booking system integration, available on request</li>
+            <li data-i18n="pricing.tier4.feature6">General ongoing updates and fixes, basically anything the site needs</li>
+          </ul>
+          <a href="#contact" class="btn btn--accent" data-i18n="pricing.tier4.cta">Get a quote</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about section--light" id="about" aria-label="About us">
+    <div class="container">
+      <header class="section-header fade-in-view">
+        <p class="eyebrow" data-i18n="about.eyebrow">About</p>
+        <h2 class="section-headline" data-i18n="about.headline">Meet TZ Digital</h2>
+      </header>
+
+      <div class="about__content fade-in-view">
+        <p data-i18n="about.p1">We're a small team based around Maastricht, building and looking after websites for local businesses. Between the three of us we cover client relationships, development, and day-to-day operations, splitting the work differently depending on what each project needs.</p>
+        <p data-i18n="about.p2">That means no account managers and no outsourced developers. When you reach out to TZ Digital, you're talking directly to the people actually building and running your site.</p>
+      </div>
+
+      <div class="about__team">
+        <div class="team-card fade-in-view">
+          <div class="team-card__photo">
+            <img src="assets/team-albert.jpg" alt="Albert, TZ Digital" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="team-card__fallback">A</div>
+          </div>
+          <p class="team-card__name">Albert</p>
+          <p class="team-card__role" data-i18n="about.team1.role">Client Lead &amp; Growth</p>
+        </div>
+
+        <div class="team-card fade-in-view">
+          <div class="team-card__photo">
+            <img src="assets/team-julius.jpg" alt="Julius, TZ Digital" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="team-card__fallback">J</div>
+          </div>
+          <p class="team-card__name">Julius</p>
+          <p class="team-card__role" data-i18n="about.team2.role">Lead Developer</p>
+        </div>
+
+        <div class="team-card fade-in-view">
+          <div class="team-card__photo">
+            <img src="assets/team-maxim.jpg" alt="Maxim, TZ Digital" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="team-card__fallback">M</div>
+          </div>
+          <p class="team-card__name">Maxim</p>
+          <p class="team-card__role" data-i18n="about.team3.role">Operations</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="cta-band" aria-label="Get started">
+    <div class="container cta-band__inner fade-in-view">
+      <p class="eyebrow" data-i18n="cta.eyebrow">Get Started</p>
+      <h2 class="section-headline cta-band__headline" data-i18n="cta.headline">Your Business Deserves a Website This Good.</h2>
+      <p class="cta-band__support" data-i18n="cta.support">No templates, no fluff, just a site that works as hard as you do.</p>
+      <a href="#contact" class="btn btn--light" data-i18n="cta.button">Let's talk</a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact section--dark" id="contact" aria-label="Contact">
+    <div class="container">
+      <header class="section-header fade-in-view">
+        <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
+        <h2 class="section-headline" data-i18n="contact.headline">Let's Build Something</h2>
+        <p class="section-support" data-i18n="contact.support">Tell us about your business, and we'll get back to you within 24 hours.</p>
+      </header>
+
+      <div class="contact__grid">
+        <div class="contact__info fade-in-view">
+          <p data-i18n="contact.info.intro">Ready to start your project? Reach out and we'll get back to you within 24 hours.</p>
+          <p><a href="mailto:albertjnr.zapke@t-online.de">albertjnr.zapke@t-online.de</a></p>
+          <p><a href="tel:+4915172507603">+49 1517 2507603</a></p>
+        </div>
+
+        <form class="contact__form fade-in-view" id="contact-form" action="https://formspree.io/f/mbdnowwp" method="POST">
+          <div class="form-group">
+            <label for="name" data-i18n="contact.form.labelName">Name</label>
+            <input type="text" id="name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="email" data-i18n="contact.form.labelEmail">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="message" data-i18n="contact.form.labelMessage">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="_subject" value="New inquiry from TZ Digital website">
+          <button type="submit" class="btn btn--accent" data-i18n="contact.form.submit">Send message</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__logo">TZ Digital</span>
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <a href="#work" data-i18n="nav.work">Work</a>
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </nav>
+      <p class="footer__copy" data-i18n="footer.copy">&copy; 2026 TZ Digital. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="js/hero-scene.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
