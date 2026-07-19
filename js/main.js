@@ -233,7 +233,6 @@
   if (contactForm) {
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const statusEl = document.getElementById('form-status');
-    const submitBtnDefaultText = submitBtn ? submitBtn.textContent : '';
 
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -255,9 +254,12 @@
         headers: { Accept: 'application/json' },
       })
         .then(function (response) {
+          const isNl = document.documentElement.lang === 'nl';
           if (response.ok) {
             if (statusEl) {
-              statusEl.textContent = window.TZ_I18N.t('contact.status.success');
+              statusEl.textContent = isNl
+                ? "Bedankt — we nemen binnen 24 uur contact met u op."
+                : "Thanks — we'll get back to you within 24 hours.";
               statusEl.classList.add('form-status--success');
             }
             contactForm.reset();
@@ -266,21 +268,28 @@
               const message =
                 data && data.errors && data.errors.length
                   ? data.errors.map(function (err) { return err.message; }).join(', ')
-                  : window.TZ_I18N.t('contact.status.error');
+                  : isNl
+                    ? "Er ging iets mis. Probeer het opnieuw of mail ons rechtstreeks."
+                    : "Something went wrong. Please try again or email us directly.";
               throw new Error(message);
             });
           }
         })
         .catch(function (error) {
           if (statusEl) {
-            statusEl.textContent = error.message || window.TZ_I18N.t('contact.status.error');
+            const isNl = document.documentElement.lang === 'nl';
+            statusEl.textContent = error.message || (isNl
+              ? "Er ging iets mis. Probeer het opnieuw of mail ons rechtstreeks."
+              : "Something went wrong. Please try again or email us directly.");
             statusEl.classList.add('form-status--error');
           }
         })
         .finally(function () {
           if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.textContent = window.TZ_I18N.t('contact.form.submit');
+            submitBtn.textContent = document.documentElement.lang === 'nl'
+              ? 'Bericht versturen'
+              : 'Send message';
           }
         });
     });
