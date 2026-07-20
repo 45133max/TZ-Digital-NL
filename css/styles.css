@@ -389,12 +389,12 @@ ul {
 
 .hero-pin {
   position: relative;
-  height: 250vh;
+  height: calc(var(--vh, 1vh) * 250);
 }
 
 .hero {
   position: relative;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -513,12 +513,12 @@ ul {
 
 .portfolio-pin {
   position: relative;
-  height: 300vh;
+  height: calc(var(--vh, 1vh) * 300);
 }
 
 .portfolio {
   position: relative;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
   background-color: var(--neutral-100);
   color: var(--neutral-900);

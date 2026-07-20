@@ -8,6 +8,9 @@
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   gsap.registerPlugin(ScrollTrigger);
+  // Mobile browsers fire resize events when the address bar hides/shows mid-scroll —
+  // without this, ScrollTrigger's own pin math can jump when that happens.
+  ScrollTrigger.config({ ignoreMobileResize: true });
 
   /* --------------------------------------------------------------------------
      Lenis smooth scroll
@@ -55,6 +58,29 @@
   const portfolio = document.getElementById('work');
   const portfolioTrack = document.getElementById('portfolio-track');
   const portfolioDots = document.querySelectorAll('.portfolio__dot');
+
+  /* --------------------------------------------------------------------------
+     Cached viewport/pin measurements — only recomputed on a debounced resize,
+     never mid-scroll. Fixes the mobile address-bar-collapse jitter that made
+     the hero rotation and portfolio pan look laggy/reset-y on phones.
+     -------------------------------------------------------------------------- */
+
+  let viewportHeight = window.innerHeight;
+  let heroPinHeight = 0;
+  let portfolioPinHeight = 0;
+
+  function setViewportUnit() {
+    viewportHeight = window.innerHeight;
+    document.documentElement.style.setProperty('--vh', viewportHeight * 0.01 + 'px');
+  }
+
+  function measurePinHeights() {
+    if (heroPin) heroPinHeight = heroPin.offsetHeight;
+    if (portfolioPin) portfolioPinHeight = portfolioPin.offsetHeight;
+  }
+
+  setViewportUnit();
+  measurePinHeights();
 
   /* --------------------------------------------------------------------------
      ScrollTrigger pinning (no scrub callbacks — progress read in RAF)
@@ -123,12 +149,10 @@
      Scroll progress helpers
      -------------------------------------------------------------------------- */
 
-  function getPinProgress(pinEl) {
+  function getPinProgress(pinEl, cachedPinHeight) {
     if (!pinEl) return 0;
     const rect = pinEl.getBoundingClientRect();
-    const pinHeight = pinEl.offsetHeight;
-    const viewH = window.innerHeight;
-    const maxScroll = pinHeight - viewH;
+    const maxScroll = cachedPinHeight - viewportHeight;
     if (maxScroll <= 0) return 0;
     const scrolled = -rect.top;
     return Math.max(0, Math.min(1, scrolled / maxScroll));
@@ -141,8 +165,8 @@
   let lastActiveDot = -1;
 
   function updateScrollEffects() {
-    const heroProgress = prefersReducedMotion ? 1 : getPinProgress(heroPin);
-    const portfolioProgress = prefersReducedMotion ? 0 : getPinProgress(portfolioPin);
+    const heroProgress = prefersReducedMotion ? 1 : getPinProgress(heroPin, heroPinHeight);
+    const portfolioProgress = prefersReducedMotion ? 0 : getPinProgress(portfolioPin, portfolioPinHeight);
 
     if (heroScene) {
       heroScene.updateProgress(heroProgress);
@@ -219,8 +243,10 @@
   window.addEventListener('resize', function () {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function () {
+      setViewportUnit();
       if (heroScene) heroScene.resize();
       ScrollTrigger.refresh();
+      measurePinHeights();
       updateScrollEffects();
     }, 150);
   });
