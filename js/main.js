@@ -6,6 +6,11 @@
   'use strict';
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const mobilePortfolioQuery = window.matchMedia('(max-width: 768px)');
+
+  function isPortfolioSwipeMode() {
+    return mobilePortfolioQuery.matches && !prefersReducedMotion;
+  }
 
   gsap.registerPlugin(ScrollTrigger);
   // Mobile browsers fire resize events when the address bar hides/shows mid-scroll —
@@ -96,14 +101,16 @@
       invalidateOnRefresh: true,
     });
 
-    ScrollTrigger.create({
-      trigger: portfolioPin,
-      start: 'top top',
-      end: 'bottom bottom',
-      pin: portfolio,
-      pinSpacing: false,
-      invalidateOnRefresh: true,
-    });
+    if (!mobilePortfolioQuery.matches) {
+      ScrollTrigger.create({
+        trigger: portfolioPin,
+        start: 'top top',
+        end: 'bottom bottom',
+        pin: portfolio,
+        pinSpacing: false,
+        invalidateOnRefresh: true,
+      });
+    }
   }
 
   /* --------------------------------------------------------------------------
@@ -172,12 +179,14 @@
       heroScene.updateProgress(heroProgress);
     }
 
-    if (portfolioTrack && !prefersReducedMotion) {
+    if (portfolioTrack && !prefersReducedMotion && !isPortfolioSwipeMode()) {
       const translateX = portfolioProgress * 200;
       portfolioTrack.style.transform = 'translate3d(-' + translateX + 'vw, 0, 0)';
+    } else if (portfolioTrack && isPortfolioSwipeMode()) {
+      portfolioTrack.style.transform = 'none';
     }
 
-    if (portfolioDots.length) {
+    if (portfolioDots.length && !isPortfolioSwipeMode()) {
       const activeIndex = prefersReducedMotion
         ? 0
         : Math.min(2, Math.round(portfolioProgress * 2));
@@ -208,6 +217,32 @@
   }
 
   requestAnimationFrame(scrollLoop);
+
+  if (portfolioTrack && portfolioDots.length) {
+    portfolioTrack.addEventListener(
+      'scroll',
+      function () {
+        if (!isPortfolioSwipeMode()) return;
+        const panels = portfolioTrack.querySelectorAll('.portfolio__panel');
+        let activeIndex = 0;
+        let closest = Infinity;
+        panels.forEach(function (panel, i) {
+          const dist = Math.abs(panel.offsetLeft - portfolioTrack.scrollLeft);
+          if (dist < closest) {
+            closest = dist;
+            activeIndex = i;
+          }
+        });
+        if (activeIndex !== lastActiveDot) {
+          portfolioDots.forEach(function (dot, i) {
+            dot.classList.toggle('is-active', i === activeIndex);
+          });
+          lastActiveDot = activeIndex;
+        }
+      },
+      { passive: true }
+    );
+  }
 
   /* --------------------------------------------------------------------------
      IntersectionObserver — one-shot fade-in effects
@@ -247,6 +282,9 @@
       if (heroScene) heroScene.resize();
       ScrollTrigger.refresh();
       measurePinHeights();
+      if (portfolioTrack && isPortfolioSwipeMode()) {
+        portfolioTrack.style.transform = 'none';
+      }
       updateScrollEffects();
     }, 150);
   });

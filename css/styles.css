@@ -721,6 +721,66 @@ ul {
   }
 }
 
+@media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .portfolio-pin {
+    height: auto;
+  }
+
+  .portfolio {
+    height: auto;
+    overflow: visible;
+    padding-block: var(--section-pad-y);
+  }
+
+  .portfolio__header {
+    position: relative;
+    top: auto;
+    margin-bottom: 2rem;
+  }
+
+  .portfolio__track-wrap {
+    position: relative;
+    inset: auto;
+    padding-top: 0;
+    overflow: visible;
+  }
+
+  .portfolio__track {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    width: 100%;
+    height: auto;
+    padding-inline: var(--section-pad-x);
+    scroll-padding-inline: var(--section-pad-x);
+    transform: none !important;
+    will-change: auto;
+  }
+
+  .portfolio__panel {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 85%;
+    max-width: 340px;
+    padding-inline: 0;
+  }
+
+  .browser-mockup {
+    width: 100%;
+  }
+
+  .portfolio__dots {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin-top: 1.5rem;
+    justify-content: center;
+  }
+}
+
 /* ==========================================================================
    Services
    ========================================================================== */
