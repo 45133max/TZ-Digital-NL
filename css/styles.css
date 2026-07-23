@@ -748,8 +748,13 @@ ul {
   .portfolio__track {
     display: flex;
     overflow-x: auto;
+    overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x;
+    scrollbar-width: none;
     gap: 1rem;
     width: 100%;
     height: auto;
@@ -759,9 +764,14 @@ ul {
     will-change: auto;
   }
 
+  .portfolio__track::-webkit-scrollbar {
+    display: none;
+  }
+
   .portfolio__panel {
     flex: 0 0 auto;
     scroll-snap-align: start;
+    scroll-snap-stop: always;
     width: 85%;
     max-width: 340px;
     padding-inline: 0;
@@ -771,6 +781,12 @@ ul {
     width: 100%;
   }
 
+  .browser-mockup__content,
+  .browser-mockup__shot {
+    min-height: 220px;
+    height: 220px;
+  }
+
   .portfolio__dots {
     position: relative;
     bottom: auto;
@@ -778,6 +794,23 @@ ul {
     transform: none;
     margin-top: 1.5rem;
     justify-content: center;
+  }
+
+  .portfolio__dot {
+    padding: 17px;
+    box-sizing: content-box;
+    background-clip: content-box;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    overflow: hidden;
+  }
+
+  .hero__canvas-wrap {
+    pointer-events: none;
   }
 }
 

@@ -18,13 +18,14 @@
   window.TZHeroScene = function (canvas, options) {
     options = options || {};
     const reducedMotion = options.reducedMotion || false;
+    const isMobile = options.mobile || false;
 
     const renderer = new THREE.WebGLRenderer({
       canvas: canvas,
       alpha: true,
       antialias: true,
     });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
     renderer.setClearColor(0x000000, 0);
 
     const scene = new THREE.Scene();

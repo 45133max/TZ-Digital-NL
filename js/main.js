@@ -7,6 +7,7 @@
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const mobilePortfolioQuery = window.matchMedia('(max-width: 768px)');
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
   function isPortfolioSwipeMode() {
     return mobilePortfolioQuery.matches && !prefersReducedMotion;
@@ -26,10 +27,11 @@
     easing: function (t) {
       return Math.min(1, 1.001 - Math.pow(2, -10 * t));
     },
-    smoothWheel: !prefersReducedMotion,
+    smoothWheel: !prefersReducedMotion && !isMobile,
+    syncTouch: isMobile && !prefersReducedMotion,
   });
 
-  if (!prefersReducedMotion) {
+  if (!prefersReducedMotion && !isMobile) {
     ScrollTrigger.scrollerProxy(document.documentElement, {
       scrollTop: function (value) {
         if (arguments.length) {
@@ -119,7 +121,10 @@
 
   let heroScene = null;
   if (heroCanvas && window.TZHeroScene) {
-    heroScene = window.TZHeroScene(heroCanvas, { reducedMotion: prefersReducedMotion });
+    heroScene = window.TZHeroScene(heroCanvas, {
+      reducedMotion: prefersReducedMotion,
+      mobile: isMobile,
+    });
   }
 
   /* --------------------------------------------------------------------------
@@ -242,6 +247,19 @@
       },
       { passive: true }
     );
+
+    portfolioDots.forEach(function (dot, i) {
+      dot.setAttribute('role', 'button');
+      dot.setAttribute('tabindex', '0');
+      dot.setAttribute('aria-label', 'Project ' + (i + 1));
+      dot.addEventListener('click', function () {
+        if (!isPortfolioSwipeMode()) return;
+        const panels = portfolioTrack.querySelectorAll('.portfolio__panel');
+        if (panels[i]) {
+          panels[i].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        }
+      });
+    });
   }
 
   /* --------------------------------------------------------------------------
