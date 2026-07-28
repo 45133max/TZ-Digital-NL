@@ -6,6 +6,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tz-digital.nl/" />
     <xhtml:link rel="alternate" hreflang="nl" href="https://tz-digital.nl/nl/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tz-digital.nl/" />
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -14,6 +15,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tz-digital.nl/" />
     <xhtml:link rel="alternate" hreflang="nl" href="https://tz-digital.nl/nl/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tz-digital.nl/" />
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -22,6 +24,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tz-digital.nl/nfc-review-tags-maastricht.html" />
     <xhtml:link rel="alternate" hreflang="nl" href="https://tz-digital.nl/nl/nfc-tags-maastricht.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tz-digital.nl/nfc-review-tags-maastricht.html" />
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -30,6 +33,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tz-digital.nl/nfc-review-tags-maastricht.html" />
     <xhtml:link rel="alternate" hreflang="nl" href="https://tz-digital.nl/nl/nfc-tags-maastricht.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tz-digital.nl/nfc-review-tags-maastricht.html" />
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -38,6 +42,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tz-digital.nl/ai-agents-maastricht.html" />
     <xhtml:link rel="alternate" hreflang="nl" href="https://tz-digital.nl/nl/ai-agents-voor-bedrijven-maastricht.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tz-digital.nl/ai-agents-maastricht.html" />
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -46,6 +51,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tz-digital.nl/ai-agents-maastricht.html" />
     <xhtml:link rel="alternate" hreflang="nl" href="https://tz-digital.nl/nl/ai-agents-voor-bedrijven-maastricht.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tz-digital.nl/ai-agents-maastricht.html" />
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -54,6 +60,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tz-digital.nl/website-design-maastricht.html" />
     <xhtml:link rel="alternate" hreflang="nl" href="https://tz-digital.nl/nl/website-laten-maken-maastricht.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tz-digital.nl/website-design-maastricht.html" />
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -62,6 +69,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tz-digital.nl/website-design-maastricht.html" />
     <xhtml:link rel="alternate" hreflang="nl" href="https://tz-digital.nl/nl/website-laten-maken-maastricht.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tz-digital.nl/website-design-maastricht.html" />
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -70,6 +78,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tz-digital.nl/seo-maastricht.html" />
     <xhtml:link rel="alternate" hreflang="nl" href="https://tz-digital.nl/nl/seo-maastricht.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tz-digital.nl/seo-maastricht.html" />
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -78,15 +87,18 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://tz-digital.nl/seo-maastricht.html" />
     <xhtml:link rel="alternate" hreflang="nl" href="https://tz-digital.nl/nl/seo-maastricht.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tz-digital.nl/seo-maastricht.html" />
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tz-digital.nl/impressum.html</loc>
+    <lastmod>2026-07-28</lastmod>
     <priority>0.2</priority>
   </url>
   <url>
     <loc>https://tz-digital.nl/datenschutz.html</loc>
+    <lastmod>2026-07-28</lastmod>
     <priority>0.2</priority>
   </url>
 </urlset>
