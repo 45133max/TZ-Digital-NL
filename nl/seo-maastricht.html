@@ -28,12 +28,25 @@
   <meta property="og:locale:alternate" content="en_US">
   <meta name="twitter:card" content="summary">
 
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tz-digital.nl/nl/" },
+      { "@type": "ListItem", "position": 2, "name": "SEO", "item": "https://tz-digital.nl/nl/seo-maastricht.html" }
+    ]
+  }
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "serviceType": "Lokale SEO",
-    "provider": { "@type": "ProfessionalService", "name": "TZ Digital", "url": "https://tz-digital.nl/nl/" },
+    "provider": { "@id": "https://tz-digital.nl/#business" },
     "areaServed": [
       { "@type": "City", "name": "Maastricht" },
       { "@type": "City", "name": "Heerlen" },
