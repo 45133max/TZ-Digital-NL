@@ -16,6 +16,19 @@
   });
 
   const nav = document.getElementById('nav');
+  const navToggle = document.getElementById('nav-toggle');
+  if (navToggle && nav) {
+    navToggle.addEventListener('click', function () {
+      const isOpen = nav.classList.toggle('nav--open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    nav.querySelectorAll('.nav__links a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        nav.classList.remove('nav--open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
 
   function scrollLoop(time) {
     lenis.raf(time);
