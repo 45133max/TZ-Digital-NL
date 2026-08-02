@@ -355,3 +355,74 @@ and visually confirmed the "Instagram" footer link renders correctly.
 stays a single-entry array on both sites, ready to extend.
 
 Committed as a single commit on `seo-gbp-nl`. Branch not merged/pushed.
+
+---
+
+## Follow-up (2026-08-02) — audit + fixes: hreflang x-default, CookieYes consent
+
+Requested as an audit checklist against everything committed so far on this branch. Checked
+each item against the actual repo state before redoing anything — two of four were already
+correct, two needed real fixes.
+
+**GA4 Measurement ID** — already correct. `G-EBW9DRL2YC` everywhere, zero references to the
+DE site's `G-J4BN0QL2QE` anywhere in the repo. No action needed (this item's other half, the
+`datenschutz.html` disclosure, needed rewriting anyway as part of the CookieYes work below,
+since the disclosure and the actual mechanism have to describe the same thing).
+
+**Logo + Instagram** — already fully done (previous commit `289573e`): logo in `assets/`,
+wired into `Organization.logo` on both homepages and used as favicon on all 16 pages,
+Instagram in `sameAs` and the footer on all 16 pages. No action needed.
+
+**hreflang x-default** — was not done; still self-referenced `tz-digital.nl` on all 14 pages
+that declare hreflang, contradicting the DE site's homepage which already pointed at
+`tz-digital.de`. Fixed in its own commit: `x-default` now points at `https://tz-digital.de/`
+everywhere per explicit instruction (Essen is the verified legal/business home market).
+`impressum.html`/`datenschutz.html` have no hreflang block at all — nothing to fix there.
+
+**CookieYes consent** — was not done at all. Unlike the DE repo (which got a custom-built
+Consent Mode v2 banner in an earlier session), this repo never had any consent mechanism —
+GA4 fired unconditionally on every page load. Added:
+
+- The exact CookieYes loader snippet provided
+  (`id="cookieyes"`, `src=".../client_data/1eac1d951d540cddd0f6af78390c5421/script.js"`) as
+  the literal first `<script>` element in `<head>` on all 16 pages — confirmed via a scripted
+  check of the first `<script...` match in each file, not just visual inspection
+- Converted both GA4 script blocks (the async `gtag.js` loader and the inline
+  `gtag('config', ...)` block) to CookieYes' documented manual-blocking convention:
+  `type="text/plain" data-cookieyes="cookieyes-analytics"`. Browsers never execute
+  `type="text/plain"` scripts — CookieYes' own runtime is what rewrites the type back to
+  `text/javascript` once the visitor consents to the "Statistik" category. This blocks GA4
+  *unconditionally* at the HTML level, not just via a JS gate that could fail to run.
+- Rewrote `datenschutz.html` §6 to name CookieYes as the actual consent tool, describe GA4 as
+  blocked until "Statistik" consent, and updated the legal basis to Art. 6 Abs. 1 lit. a DSGVO
+  + § 25 Abs. 1 TTDSG (consent) now that a real opt-in mechanism exists — same pattern as the
+  DE site's own consent-mechanism disclosure. Also corrected a mistake I caught while drafting
+  it: CookieYes itself sets a first-party cookie to remember the visitor's choice, so "this
+  site sets no cookies of its own" would have been inaccurate; disclosed that cookie
+  specifically (necessary, Art. 6 Abs. 1 lit. f DSGVO) instead of overclaiming.
+
+**Verified, with an important limitation**: loaded the homepage on a local server and
+confirmed via the browser console that CookieYes' script *did* load (reached and started
+executing) but threw `Uncaught Error: Looks like your website URL has changed... update the
+registered URL on your CookieYes account` — CookieYes ties its client ID to a specific
+registered domain (presumably `tz-digital.nl`) and refuses to initialize its banner on
+`localhost`. This means **the actual banner UI and consent-granting flow could not be tested
+in this environment** — that can only be verified once deployed to the real domain, or by
+adding a testing domain to the CookieYes account's "Organizations & Sites" settings.
+
+What *was* verified despite that: `window.gtag` and `window.dataLayer` are both `undefined`
+and both gated `<script>` elements remain at `type="text/plain"` after page load — confirming
+GA4 stays completely inert regardless of whether CookieYes' own script succeeds or fails. This
+is a fail-closed design: even in the domain-mismatch error state just observed, analytics
+never became unblocked. That's the strongest verification available without a live domain to
+test against, and it directly confirms the requirement that mattered most ("GA4 only loads
+post-consent") holds even in a failure mode.
+
+Committed as 2 separate commits on `seo-gbp-nl`: the hreflang fix, then the CookieYes work
+(script placement + GA4 gating + privacy-policy rewrite, bundled together since splitting them
+would leave an intermediate commit where the site's behavior and its privacy disclosure are
+out of sync). Branch not merged/pushed.
+
+**Open item**: confirm in the CookieYes dashboard that "Statistik"/Analytics is the correct
+category slug (`cookieyes-analytics`) for this account, and that the client ID's registered
+domain is actually `tz-digital.nl` — neither could be verified from this environment.
