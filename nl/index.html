@@ -1,40 +1,56 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J4BN0QL2QE"></script>
-  <script>
+  <!-- CookieYes consent management — must be the first script, before any other tag -->
+  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/1eac1d951d540cddd0f6af78390c5421/script.js"></script>
+
+  <!-- Google tag (gtag.js) — blocked by CookieYes until the visitor consents to Statistics -->
+  <script type="text/plain" data-cookieyes="cookieyes-analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-EBW9DRL2YC"></script>
+  <script type="text/plain" data-cookieyes="cookieyes-analytics">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-J4BN0QL2QE');
+    gtag('config', 'G-EBW9DRL2YC');
   </script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TZ Digital | Website Laten Maken, Shopify &amp; SEO in Maastricht</title>
-  <meta name="description" content="TZ Digital bouwt websites, Shopify-webshops, NFC-reviewtags en AI-agents voor lokale ondernemers in Maastricht. Nederlands &amp; Engels gesproken. Vraag een gratis offerte aan.">
+  <title>TZ Digital | Website Laten Maken &amp; SEO in Maastricht</title>
+  <meta name="description" content="TZ Digital bouwt websites, Shopify-webshops, NFC-reviewtags en AI-agents voor lokale ondernemers in Maastricht. Vraag een gratis offerte aan.">
 
   <link rel="canonical" href="https://tz-digital.nl/nl/">
   <link rel="alternate" hreflang="en" href="https://tz-digital.nl/">
   <link rel="alternate" hreflang="nl" href="https://tz-digital.nl/nl/">
-  <link rel="alternate" hreflang="x-default" href="https://tz-digital.nl/">
+  <link rel="alternate" hreflang="de" href="https://tz-digital.de/">
+  <link rel="alternate" hreflang="x-default" href="https://tz-digital.de/">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="TZ Digital | Website Laten Maken, Shopify &amp; SEO in Maastricht">
+  <meta property="og:title" content="TZ Digital | Website Laten Maken &amp; SEO in Maastricht">
   <meta property="og:description" content="TZ Digital bouwt websites, Shopify-webshops, NFC-reviewtags en AI-agents voor lokale ondernemers in Maastricht.">
   <meta property="og:url" content="https://tz-digital.nl/nl/">
   <meta property="og:locale" content="nl_NL">
   <meta property="og:locale:alternate" content="en_US">
   <meta name="twitter:card" content="summary">
 
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": "https://tz-digital.nl/#business",
     "name": "TZ Digital",
     "url": "https://tz-digital.nl/nl/",
     "description": "Website design, Shopify-webshops, SEO, NFC-reviewtags en AI-agents voor lokale ondernemers in Maastricht.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Am Ruhrstein 56",
+      "postalCode": "45133",
+      "addressLocality": "Essen",
+      "addressCountry": "DE"
+    },
     "areaServed": [
       { "@type": "City", "name": "Maastricht" },
       { "@type": "City", "name": "Heerlen" },
@@ -43,10 +59,13 @@
     ],
     "availableLanguage": ["en", "nl"],
     "email": "albertjnr.zapke@t-online.de",
-    "telephone": "+4915172507603"
+    "telephone": "+4915172507603",
+    "logo": "https://tz-digital.nl/assets/logo.jpg",
+    "sameAs": ["https://www.instagram.com/t_z_digital"]
   }
   </script>
 
+  <link rel="icon" type="image/jpeg" href="../assets/logo.jpg">
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
@@ -65,6 +84,9 @@
         <a href="/" class="lang-toggle__btn">EN</a>
         <a href="/nl/" class="lang-toggle__btn is-active">NL</a>
       </div>
+      <button type="button" class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-label="Menu openen/sluiten">
+        <span class="nav__toggle-icon"></span>
+      </button>
     </div>
   </nav>
 
@@ -111,7 +133,7 @@
                 </div>
                 <div class="browser-mockup__content">
                   <img class="browser-mockup__shot" src="../assets/portfolio-roundabout.jpg"
-                       alt="Screenshot van de website van The Roundabout" loading="lazy"
+                       alt="Screenshot van de website van The Roundabout" loading="lazy" width="1707" height="887"
                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                   <div class="browser-mockup__fallback">The Roundabout</div>
                 </div>
@@ -133,7 +155,7 @@
                 </div>
                 <div class="browser-mockup__content">
                   <img class="browser-mockup__shot" src="../assets/portfolio-vriendschap-kapsalon.jpg"
-                       alt="Screenshot van de website van de Vriendschap Kapsalon" loading="lazy"
+                       alt="Screenshot van de website van de Vriendschap Kapsalon" loading="lazy" width="1606" height="900"
                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                   <div class="browser-mockup__fallback">de Vriendschap Kapsalon</div>
                 </div>
@@ -155,7 +177,7 @@
                 </div>
                 <div class="browser-mockup__content">
                   <img class="browser-mockup__shot" src="../assets/portfolio-vriendschap-salon.jpg"
-                       alt="Screenshot van de website van de Vriendschap" loading="lazy"
+                       alt="Screenshot van de website van de Vriendschap" loading="lazy" width="1466" height="892"
                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                   <div class="browser-mockup__fallback">de Vriendschap</div>
                 </div>
@@ -323,7 +345,7 @@
       <div class="about__team">
         <div class="team-card fade-in-view">
           <div class="team-card__photo">
-            <img src="../assets/team-albert.jpg" alt="Albert, TZ Digital" loading="lazy"
+            <img src="../assets/team-albert.jpg" alt="Albert, TZ Digital" loading="lazy" width="400" height="400"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="team-card__fallback">A</div>
           </div>
@@ -333,7 +355,7 @@
 
         <div class="team-card fade-in-view">
           <div class="team-card__photo">
-            <img src="../assets/team-julius.jpg" alt="Julius, TZ Digital" loading="lazy"
+            <img src="../assets/team-julius.jpg" alt="Julius, TZ Digital" loading="lazy" width="400" height="400"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="team-card__fallback">J</div>
           </div>
@@ -343,7 +365,7 @@
 
         <div class="team-card fade-in-view">
           <div class="team-card__photo">
-            <img src="../assets/team-maxim.jpg" alt="Maxim, TZ Digital" loading="lazy"
+            <img src="../assets/team-maxim.jpg" alt="Maxim, TZ Digital" loading="lazy" width="400" height="400"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="team-card__fallback">M</div>
           </div>
@@ -378,6 +400,13 @@
           <p>Klaar om te starten met uw project? Neem contact op en we reageren binnen 24 uur.</p>
           <p><a href="mailto:albertjnr.zapke@t-online.de">albertjnr.zapke@t-online.de</a></p>
           <p><a href="tel:+4915172507603">+49 1517 2507603</a></p>
+          <div style="aspect-ratio: 16 / 9; width: 100%; margin-top: 1.5rem; border-radius: 12px; overflow: hidden;">
+            <iframe
+              src="https://www.google.com/maps?q=Maastricht,+Netherlands&output=embed"
+              title="Werkgebied TZ Digital — Maastricht"
+              width="100%" height="100%" style="border:0; display:block;"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
         </div>
 
         <form class="contact__form fade-in-view" id="contact-form" action="https://formspree.io/f/mbdnowwp" method="POST">
@@ -413,6 +442,7 @@
         <a href="#contact">Contact</a>
         <a href="../impressum.html">Impressum</a>
         <a href="../datenschutz.html">Datenschutz</a>
+        <a href="https://www.instagram.com/t_z_digital" target="_blank" rel="noopener">Instagram</a>
       </nav>
       <p class="footer__copy">&copy; 2026 TZ Digital. Alle rechten voorbehouden.</p>
     </div>
