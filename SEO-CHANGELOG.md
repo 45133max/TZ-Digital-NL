@@ -285,3 +285,40 @@ branch consisted of:
 
 Nothing else in the repo (styling, existing JS behavior, portfolio swipe, contact form) was
 touched outside of what's described above.
+
+---
+
+## Follow-up (2026-08-02) — fixed wrong GA4 Measurement ID
+
+**Found**: this site's `gtag.js` snippet was hardcoded with `G-J4BN0QL2QE`, which is the DE
+sibling site's (tz-digital.de) GA4 Measurement ID, not this site's own. That meant every visit
+to tz-digital.nl had been reporting into the German property's traffic data instead of a
+property of its own — NL and DE traffic were indistinguishable in Analytics this whole time.
+
+**Fixed**: replaced `G-J4BN0QL2QE` with this site's real, distinct ID `G-EBW9DRL2YC`
+everywhere it appeared — both the `<script src>` URL and the `gtag('config', ...)` call, on
+all 16 pages (32 replacements total, verified with a scripted count before and after; zero
+remaining references to the old ID anywhere in the repo).
+
+**Checked for `GT-MJMG4945`** (a Google Tag ID that surfaced from a site scan) in both this
+repo and the DE repo's full source — it does not appear anywhere in either codebase's HTML/JS,
+currently or in git history. That means it isn't something hardcoded in a script tag on either
+site; it's more likely a container-level ID configured at the Google account level (Google Tag
+Manager, or an auto-generated "Google tag" wrapper created when linking Google Ads/other
+products to a property) rather than anything embedded in source. I can't confirm from the
+codebase alone which property (if either) it's actually tied to — that needs to be checked
+directly in the Google Tag Manager / Google Ads / GA4 admin UI (Admin → Data Streams → Google
+tag details, or the Tag Manager container list), not in this repo.
+
+**Privacy policy updated**: `datenschutz.html` §6 previously stated the site uses no
+analytics/tracking cookies, which was already inaccurate the whole time GA4 was silently
+running under the wrong ID, and would have stayed inaccurate under the corrected one too.
+Rewrote it with an actual GA4 disclosure (purpose, provider, data categories, legal basis,
+opt-out link), following the same purpose/legal-basis/provider template the page already uses
+for Vercel hosting and the CDN script libraries. Added one qualifying sentence noting that
+whether a cookie-consent banner is additionally required for Google Analytics under German
+TTDSG should be checked separately — that's a compliance/consent-architecture decision I'm not
+making unilaterally by writing prose, distinct from the factual "what does this tag do"
+disclosure I did write.
+
+Committed as a single commit on `seo-gbp-nl` (branch not merged/pushed).
