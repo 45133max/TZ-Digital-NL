@@ -253,14 +253,14 @@ the actual filesystem. Zero broken links found, before or after this branch's ch
    This determines the address field, service-area configuration, and whether the map/schema
    approach I chose (service-area map, no address pin) is the right long-term answer or just a
    safe placeholder.
-2. **No logo file exists in this repo's `assets/` folder.** I saw evidence of "Logo GBP.png"
-   and other logo files in your broader `AJ Digital` folder (outside this repo), but nothing
-   committed to the site itself. A logo is needed both for GBP (required for a complete
-   profile) and for the `logo` schema property. If you want it added, drop a logo file into
-   `assets/` and I (or the DE session, since it's the same brand) can wire it up.
-3. **No social media profile URLs found anywhere.** If TZ Digital has Instagram, LinkedIn,
-   Facebook, etc., these should be added as `sameAs` in the schema and linked from the site —
-   they help GBP profile strength and citation consistency.
+2. **~~No logo file exists.~~ Resolved 2026-08-02** — see the follow-up section at the end of
+   this file. A real logo (copied from the DE repo, where it was supplied first) is now live
+   at `assets/logo.jpg`, wired into `Organization.logo` on both homepages and used as the site
+   favicon.
+3. **~~No social media profile URLs found anywhere.~~ Partially resolved 2026-08-02** — a real
+   Instagram URL is now live in `sameAs` on both homepages and in the footer on all 16 pages.
+   No LinkedIn/Facebook/etc. URL has been provided yet — the same wiring pattern applies if
+   one is.
 4. **No opening hours documented anywhere.** GBP requires these for most business categories.
    Since this is a service business without walk-in customers, "by appointment" or specific
    hours both work, but I won't guess which.
@@ -322,3 +322,36 @@ making unilaterally by writing prose, distinct from the factual "what does this 
 disclosure I did write.
 
 Committed as a single commit on `seo-gbp-nl` (branch not merged/pushed).
+
+---
+
+## Follow-up (2026-08-02) — real logo added (favicon + schema); Instagram linked
+
+Both Open Questions #2 and #3 above were resolved with real assets, first supplied and wired
+up in the DE sibling repo's `seo-gbp-de` branch, then copied over here per instruction.
+
+**Logo.** Copied byte-for-byte from the DE repo's `assets/logo.jpg` (1254×1254px JPG) into
+this repo's `assets/logo.jpg` — same file, same brand, no reason to re-source it. Wired into:
+- `Organization.logo` in **both** homepage variants' `ProfessionalService` schema
+  (`index.html` and `nl/index.html`) as the absolute URL
+  `https://tz-digital.nl/assets/logo.jpg` — this repo has two homepages (unlike the
+  single-homepage DE repo), so both needed the edit; every other page already references the
+  shared `@id` rather than duplicating the entity, so nothing else needed touching
+- Site favicon: `<link rel="icon" type="image/jpeg" href="...assets/logo.jpg">` added to all
+  16 pages, using the correct relative path per file location (`assets/logo.jpg` at root,
+  `../assets/logo.jpg` under `/nl/`) — no favicon existed anywhere before
+
+**Instagram.** `https://www.instagram.com/t_z_digital` added to:
+- `Organization.sameAs` on both homepage schema blocks
+- The footer nav on all 16 pages, as a real `<a>` link (`target="_blank" rel="noopener"`),
+  right after the Datenschutz link — again respecting each file's relative-path convention
+
+**Verified**: JSON-LD still parses as valid JSON on all 16 pages; scripted broken-link crawl
+across all 16 pages (accounting for each file's relative-path base) found nothing broken;
+`assets/logo.jpg` returns 200 from a local server; loaded the homepage in an actual browser
+and visually confirmed the "Instagram" footer link renders correctly.
+
+**Not done here**: no LinkedIn/Facebook/etc. URL has been supplied for either repo — `sameAs`
+stays a single-entry array on both sites, ready to extend.
+
+Committed as a single commit on `seo-gbp-nl`. Branch not merged/pushed.
